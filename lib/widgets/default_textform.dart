@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:login_register_screen/styles.dart';
 
 class DefaultTextForm extends StatelessWidget {
   final bool isPassword;
+  final String text;
   final TextInputType keyboardType;
   final TextEditingController controller;
   final Widget? prefixIcon;
@@ -17,35 +19,42 @@ class DefaultTextForm extends StatelessWidget {
     this.suffixIcon,
     this.hintText,
     required this.validator,
+    required this.text,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      keyboardType: keyboardType,
-      validator: validator,
-      obscureText: isPassword,
-      controller: controller,
-      decoration: InputDecoration(
-        hintText: hintText,
-        border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.zero,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          text,
+          style: const TextStyle(
+            color: Colors.grey,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        prefixIcon: prefixIcon,
-        suffixIcon: suffixIcon,
-      ),
+        const SizedBox(
+          height: 5,
+        ),
+        TextFormField(
+          keyboardType: keyboardType,
+          validator: validator,
+          obscureText: isPassword,
+          controller: controller,
+          style: kTextFieldStyle,
+          decoration: InputDecoration(
+            hintText: hintText,
+            border: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.zero,
+              ),
+            ),
+            prefixIcon: prefixIcon,
+            suffixIcon: suffixIcon,
+          ),
+        ),
+      ],
     );
   }
 }
-
-
-// CountryCodePicker(
-//           onChanged: print,
-//           initialSelection: 'EG',
-//           favorite: const ['+20', 'EG'],
-//           showCountryOnly: false,
-//           showOnlyCountryWhenClosed: false,
-//           alignLeft: false,
-//         ),

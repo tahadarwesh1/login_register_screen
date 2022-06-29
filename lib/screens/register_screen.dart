@@ -3,8 +3,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:login_register_screen/components.dart';
 import 'package:login_register_screen/screens/login_screen.dart';
+import 'package:login_register_screen/styles.dart';
 import 'package:login_register_screen/widgets/default_button.dart';
 import 'package:login_register_screen/widgets/default_textform.dart';
+import 'package:login_register_screen/widgets/my_divider.dart';
 import 'package:login_register_screen/widgets/text_button.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -28,7 +30,7 @@ class RegisterScreen extends StatelessWidget {
                   Image.network(
                     'https://img.freepik.com/free-photo/colorful-mess-watercolor-drops_23-2147748925.jpg?size=626&ext=jpg',
                     fit: BoxFit.cover,
-                    height: 150,
+                    height: 120,
                     width: double.infinity,
                   ),
                   Positioned(
@@ -68,11 +70,7 @@ class RegisterScreen extends StatelessWidget {
                       children: [
                         const Text(
                           'Register',
-                          style: TextStyle(
-                            fontSize: 26,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
+                          style: kMainTextStyle,
                         ),
                         const Spacer(),
                         const MyTextButton(
@@ -89,17 +87,9 @@ class RegisterScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 10),
-                    const Text(
-                      'Email',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+
                     DefaultTextForm(
+                      text: 'Email',
                       controller: emailController,
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -110,7 +100,7 @@ class RegisterScreen extends StatelessWidget {
                       hintText: 'Eg: example@gmail.com',
                     ),
 
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 20),
                     const Text(
                       'Phone Number',
                       style: TextStyle(
@@ -119,11 +109,12 @@ class RegisterScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 5,
                     ),
 
                     IntlPhoneField(
                       controller: phoneController,
+                      style: kTextFieldStyle,
                       validator: (value) {
                         if (value!.number.isEmpty) {
                           return 'Please enter your phone number';
@@ -131,28 +122,17 @@ class RegisterScreen extends StatelessWidget {
                         return null;
                       },
                       decoration: const InputDecoration(
-                        labelText: 'Phone Number',
+                        hintText: 'Phone Number',
                         border: OutlineInputBorder(
                           borderSide: BorderSide(),
                         ),
                       ),
                       initialCountryCode: 'EG',
-                      onChanged: (phone) {
-                        print(phone.completeNumber);
-                      },
+                      dropdownTextStyle: kTextFieldStyle,
                     ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      'Password',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+
                     DefaultTextForm(
+                        text: 'Password',
                         controller: passwordController,
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -179,29 +159,7 @@ class RegisterScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     //or divider
-                    Row(
-                      children: const [
-                        Expanded(
-                          child: Divider(
-                            thickness: 1,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Text(
-                            'Or',
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Divider(
-                            thickness: 1,
-                          ),
-                        ),
-                      ],
-                    ),
+                    const MyDivider(),
                     const SizedBox(height: 20),
                     OutlinedButton(
                       style: OutlinedButton.styleFrom(
@@ -228,16 +186,13 @@ class RegisterScreen extends StatelessWidget {
                         ],
                       ),
                     ),
+                    const SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
                           'Already have an account?',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: kHandleTextStyle,
                         ),
                         const SizedBox(
                           width: 10,
@@ -255,10 +210,7 @@ class RegisterScreen extends StatelessWidget {
                     const Text(
                       'By signing up, you agree to our Terms of Service and Privacy Policy',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                      ),
+                      style: kSecondaryTextStyle,
                     ),
                   ],
                 ),
