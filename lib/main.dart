@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:login_register_screen/screens/onboarding_screen.dart';
 
 void main() {
-  
   runApp(const MyApp());
 }
 
@@ -17,13 +16,6 @@ class MyApp extends StatelessWidget {
         const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
       theme: ThemeData(
-        // appBarTheme: const AppBarTheme(
-        //   elevation: 0,
-        //   systemOverlayStyle: SystemUiOverlayStyle(
-        //     statusBarIconBrightness: Brightness.dark,
-        //     statusBarColor: Colors.white,
-        //   ),
-        // ),
         scaffoldBackgroundColor: Colors.white,
       ),
       debugShowCheckedModeBanner: false,

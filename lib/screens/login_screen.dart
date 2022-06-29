@@ -3,7 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:login_register_screen/components.dart';
 import 'package:login_register_screen/screens/register_screen.dart';
+import 'package:login_register_screen/styles.dart';
 import 'package:login_register_screen/widgets/default_button.dart';
+import 'package:login_register_screen/widgets/my_divider.dart';
 import 'package:login_register_screen/widgets/text_button.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -41,11 +43,7 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         const Text(
                           'Sign In',
-                          style: TextStyle(
-                            fontSize: 26,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
+                          style: kMainTextStyle,
                         ),
                         const Spacer(),
                         const MyTextButton(
@@ -87,9 +85,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       initialCountryCode: 'EG',
-                      onChanged: (phone) {
-                        print(phone.completeNumber);
-                      },
+                      
                     ),
                     const SizedBox(height: 20),
                     DefaultButton(
@@ -102,29 +98,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     //or divider
-                    Row(
-                      children: const [
-                        Expanded(
-                          child: Divider(
-                            thickness: 1,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Text(
-                            'Or',
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Divider(
-                            thickness: 1,
-                          ),
-                        ),
-                      ],
-                    ),
+                    const MyDivider(),
                     const SizedBox(height: 20),
                     OutlinedButton(
                       style: OutlinedButton.styleFrom(
@@ -156,11 +130,7 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         const Text(
                           'Don\'t have an account?',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: kHandleTextStyle,
                         ),
                         const SizedBox(
                           width: 10,
@@ -178,10 +148,7 @@ class LoginScreen extends StatelessWidget {
                     const Text(
                       'use the application according to policy rules. Any misuse of the application will be prosecuted to the fullest extent of the law.',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                      ),
+                      style: kSecondaryTextStyle,
                     ),
                   ],
                 ),
