@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_register_screen/components.dart';
+import 'package:login_register_screen/shared/components.dart';
 import 'package:login_register_screen/models/onboarding_model.dart';
 import 'package:login_register_screen/screens/login_screen.dart';
 import 'package:login_register_screen/screens/register_screen.dart';

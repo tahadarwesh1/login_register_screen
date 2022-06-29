@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_register_screen/styles.dart';
+import 'package:login_register_screen/shared/styles.dart';
 
 class DefaultTextForm extends StatelessWidget {
   final bool isPassword;

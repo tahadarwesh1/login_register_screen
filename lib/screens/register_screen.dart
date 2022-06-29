@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:login_register_screen/components.dart';
+import 'package:login_register_screen/shared/components.dart';
 import 'package:login_register_screen/screens/login_screen.dart';
-import 'package:login_register_screen/styles.dart';
+import 'package:login_register_screen/shared/styles.dart';
 import 'package:login_register_screen/widgets/default_button.dart';
 import 'package:login_register_screen/widgets/default_textform.dart';
 import 'package:login_register_screen/widgets/my_divider.dart';
@@ -91,6 +91,7 @@ class RegisterScreen extends StatelessWidget {
                     DefaultTextForm(
                       text: 'Email',
                       controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'Please enter your email';
